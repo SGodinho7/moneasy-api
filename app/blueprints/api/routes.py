@@ -78,7 +78,7 @@ def get_user_email(email):
 @api.route('/post-transaction', methods=['POST'])
 def post_transaction():
     data = request.get_json()
-    transac = Transaction(value=float(data['value']), date=data['date'], desc=data['desc'], id_category=0, id_user=data['id_user'])
+    transac = Transaction(value=float(data['value']), date=data['date'], desc=data['desc'], id_category=data['id_category'], id_user=data['id_user'])
 
     db.session.add(transac)
     db.session.commit()
